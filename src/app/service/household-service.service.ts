@@ -8,8 +8,8 @@ import { Item } from '../models/item';
   providedIn: 'root'
 })
 export class HouseholdServiceService {
-  hostname: string = "http://localhost:3000";
-  //hostname: string = "https://cst391nodejs.herokuapp.com" 
+  //hostname: string = "http://localhost:3000";
+  hostname: string = "https://cst391nodejs.herokuapp.com" 
 
   constructor(private http: HttpClient) { }
 
