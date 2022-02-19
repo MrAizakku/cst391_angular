@@ -1,0 +1,28 @@
+<div @fade class="container">
+    <div class="col mx-auto" style="width: 30%;">
+        <form [formGroup]="newForm" (ngSubmit)="onSubmit(newForm.value)">
+            <div class="form-group">
+                <label>{{prompt}}</label>
+                <div class="mb-3 row">
+                    <label for="title" class="col-sm-2 col-form-label">Name: </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" formControlName="name" placeholder="Household Name" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="address" class="col-sm-2 col-form-label">Address: </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" formControlName="address" placeholder="House Address" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="description" class="col-sm-2 col-form-label">Desc: </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" formControlName="description" placeholder="Description" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>

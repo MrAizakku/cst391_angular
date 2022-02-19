@@ -1,0 +1,10 @@
+<div class="list-group" *ngIf="selectedHousehold == null">
+    <button class="list-group-item" active
+        *ngFor="let household of households"
+        (click)="onSelectedHousehold(household)">
+        {{ household.Name }}
+    </button>
+</div>
+<div *ngIf="selectedHousehold">
+    <app-display-household [household]="selectedHousehold"></app-display-household>
+</div>

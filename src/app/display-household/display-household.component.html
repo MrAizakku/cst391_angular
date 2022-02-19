@@ -1,0 +1,56 @@
+<div align="center">
+    <div @fade class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item mx-auto">
+                    <a data-bs-toggle="collapse" href="#collapseItems" data-bs-target="#collapseItems" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-list"></i></a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <a [routerLink]="['/edit/household', household.Id]"><i class="fa fa-edit"></i></a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <a [routerLink]="['/delete/household', household.Id]"><i class="fa fa-trash"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ household.Name }}</h5>
+                    <p class="card-text">{{ household.Address }}</p>
+                    <p class="card-text"><small class="text-muted">{{ household.Description }}</small></p>
+        </div>
+    </div>
+    <div @fade class="collapse" id="collapseItems">
+        <h1>Inventory <a [routerLink]="['/create/item', household.Id]"><i class="fa fa-plus"></i></a></h1>
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Updated</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of household.Items">
+                    <th scope="row">{{ item.Id }}</th>
+                    <td>{{ item.Name }}</td>
+                    <td>{{ item.Description }}</td>
+                    <td>{{ item.Quantity }}</td>
+                    <td>{{ item.Created_at | date:'medium'}}</td>
+                    <td>{{ item.Updated_at | date:'medium'}}</td>
+                    <td>
+                        <a [routerLink]="['/edit/item', item.Id]"><i class="fa fa-edit"></i></a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/delete/item', item.Id]"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
